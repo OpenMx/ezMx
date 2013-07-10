@@ -1,4 +1,4 @@
-# exMx
+# ezMx
 
 EasyMx is a library of functions for users of [OpenMx](http://openmx.psyc.virginia.edu/) and [R](http://cran.r-project.org/)
 
@@ -11,43 +11,43 @@ It's goals are:
 
 ### Functions mapping from non SEM statistics to SEM
 
-`exMxLm(y ~ x)` # This function implements lm in SEM
+`ezMxLm(y ~ x)` # This function implements lm in SEM
 
-exMx_tTest(grp1 = y, grp2 = x, dependent = FALSE){
+ezMx_tTest(grp1 = y, grp2 = x, dependent = FALSE){
 
-exMx_tTest(y ~ Grp)
+ezMx_tTest(y ~ Grp)
 
-Synonyms for this are `exMxANOVA()` and `exMxRegression()`
+Synonyms for this are `ezMxANOVA()` and `ezMxRegression()`
 
 ### 1-line EFA/CFA
 
-exMxFactorModel(factors = 1, errorsEqual = FALSE){
-exMxFactorModel(F1 + F2 ~ x1 + x2 + x3")
-exMxFactorModel(latents=c("F1", "F2", ...), to=list(F1=c("x1", "x2", "x3"), F2=c("x3", "x4", "x5", ...))
+ezMxFactorModel(factors = 1, errorsEqual = FALSE){
+ezMxFactorModel(F1 + F2 ~ x1 + x2 + x3")
+ezMxFactorModel(latents=c("F1", "F2", ...), to=list(F1=c("x1", "x2", "x3"), F2=c("x3", "x4", "x5", ...))
 
-exMxLGCM <- function(timepoints = 4, errorsEqual = FALSE) {
-	# Alternate:    exMxFactors(to=c("x1", "x2", "x3), ... )
+ezMxLGCM <- function(timepoints = 4, errorsEqual = FALSE) {
+	# Alternate:    ezMxFactors(to=c("x1", "x2", "x3), ... )
 }
 
-exMxMeasurementInvariance <- function(from = c("F1", "F2", ...), to = list(F1 = c("x1", "x2", "x3"), F2 = c("x3", "x4", "x5", ...), groups = c("school")){
+ezMxMeasurementInvariance <- function(from = c("F1", "F2", ...), to = list(F1 = c("x1", "x2", "x3"), F2 = c("x3", "x4", "x5", ...), groups = c("school")){
 	# repurpose semTools code, or give them OpenMx code to handle our models?
 }
 
-exMxACEModel<- function(twin1 = x, twin2 = y, ...){
+ezMxACEModel<- function(twin1 = x, twin2 = y, ...){
    # Not sure how else to do it.
 }
 
 # Helpers:
-exMxSimpleThresholds <- function(model, data, useStandardNormal = TRUE) {
+ezMxSimpleThresholds <- function(model, data, useStandardNormal = TRUE) {
 	#<- generates threshold expectations for a RAM or LISREL model
 }
 
 # Outputs:
-exMxPlot <- function(model) {
+ezMxPlot <- function(model) {
 	# <- plots a RAM or LISREL model
 }
 
-exMxTable <- function(model, ...) {
+ezMxTable <- function(model, ...) {
 	#<- plot a publication-qualty table of output stats
 }
 
