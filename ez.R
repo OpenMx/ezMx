@@ -1,40 +1,73 @@
-# base
-ezmxRegression <- function(y ~ x){
-	# Alternate: ezmxRegression(from="x", to="y")
-} 	
-ezmx_tTest <- function(grp1 = y, grp2 = x, dependent = FALSE){
-	# ezmxMeansTest(y | Grp)
-}
-ezmxANOVA <- function(x, conditions = c(grp1, grp2, grp3)){
- # Alternate: ezmxMeansTest(y, | c(G1, G2, ...)
-}
-ezmxRegression <- function(y ~ x1 + x2 * x3){
-	# Alternate: ezmxRegression(from=c(...), to="y")
+implement
+cor.test(~ CONT + INTG, data = USJudgeRatings)
+
+plot <- function(y ~ x){
+	just calls omxGraphViz()
 }
 
-ezmxFactorModel <- function(factors = 1, errorsEqual = FALSE){
-	# Alternate:    ezmxFactors(latents=c("F1", "F2", ...), to=list(F1=c("x1", "x2", "x3"), F2=c("x3", "x4", "x5", ...)) ]
+ezMxPath <- function(y ~ x, verbose=T){
+	# can return a list of single from to paths written out long-hand, as it were
+	# from a:c to d
+	# from a to d
+	# from b to d
+	# from c to d
+		
 }
-ezmxLGCM <- function(timepoints = 4, errorsEqual = FALSE) {
-	# Alternate:    ezmxFactors(to=c("x1", "x2", "x3), ... )
+
+# base
+ezMx_tTest <- function(x = x, y = y, dependent = FALSE){
+	# ezmxMeansTest(y ~ group)
+	t.test(x, y = NULL, alternative = c("two.sided", "less", "greater"), mu = 0, paired = FALSE, var.equal = FALSE, conf.level = 0.95, ...)
+	# t.test(formula, data, subset, na.action, ...)
 }
-ezmxMeasurementInvariance <- function(from = c("F1", "F2", ...), to = list(F1 = c("x1", "x2", "x3"), F2 = c("x3", "x4", "x5", ...), groups = c("school")){
+
+ezMx_lm <- function(y ~ x){
+	# Alternate: ezmxRegression(from="x", to="y")
+    # exMx_lm()
+} 	
+   # tim bates going to do this?
+   
+ezMxRegression <- function(y ~ x){
+	# Alternate: ezmxRegression(from="x", to="y")
+    # exMx_lm()
+} 	
+
+exMxRegression <- function(y ~ x){
+	# Alternate: exMxRegression(from="x", to="y")
+    # exMx_lm()
+} 	
+
+exMxANOVA <- function(y~ x){
+ # exMx_lm()
+}
+
+exMxFactorModel <- function(factors = 1, errorsEqual = FALSE){
+	# Alternate: exMxFactors(latents=c("F1", "F2", ...), to=list(F1=c("x1", "x2", "x3"), F2=c("x3", "x4", "x5", ...)) ]
+}
+
+exMxLGCM <- function(timepoints = 4, errorsEqual = FALSE) {
+	# Alternate:    exMxFactors(to=c("x1", "x2", "x3), ... )
+}
+
+exMxMeasurementInvariance <- function(from = c("F1", "F2", ...), to = list(F1 = c("x1", "x2", "x3"), F2 = c("x3", "x4", "x5", ...), groups = c("school")){
 	# repurpose semTools code, or give them OpenMx code to handle our models?
 }
-ezmxACEModel<- function(twin1 = x, twin2 = y, ...){
+
+exMxACEModel <- function(twin1 = x, twin2 = y, ...){
    # Not sure how else to do it.
+   # tim bates going to do this?
 }
 
 # Helpers:
-ezmxSimpleThresholds <- function(model, data, useStandardNormal = TRUE) {
+exMxSimpleThresholds <- function(model, data, useStandardNormal = TRUE) {
 	#<- generates threshold expectations for a RAM or LISREL model
 }
 
 # Outputs:
-ezmxPlot <- function(model) {
+exMxPlot <- function(model) {
 	# <- plots a RAM or LISREL model
 }
-ezmxTable <- function(model, ...) {
+exMxTable <- function(model, ...) {
 	#<- plot a publication-qualty table of output stats
 }
 
