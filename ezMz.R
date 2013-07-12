@@ -41,8 +41,8 @@ exMxANOVA <- function(y~ x){
  # exMx_lm()
 }
 
-exMxFactorModel <- function(factors = 1, errorsEqual = FALSE){
-	# Alternate: exMxFactors(latents=c("F1", "F2", ...), to=list(F1=c("x1", "x2", "x3"), F2=c("x3", "x4", "x5", ...)) ]
+ezMxFactorModel <- function(factors = 1, errorsEqual = FALSE){
+	# Alternate: ezMxFactors(latents=c("F1", "F2", ...), to=list(F1=c("x1", "x2", "x3"), F2=c("x3", "x4", "x5", ...)) ]
 }
 
 exMxLGCM <- function(timepoints = 4, errorsEqual = FALSE) {
