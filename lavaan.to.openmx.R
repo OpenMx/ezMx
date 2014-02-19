@@ -50,6 +50,9 @@ lavaan.to.OpenMx <- function(lavaan.model=NULL,data=NULL,ugroup=NULL,label="Defa
     # Read current data line of lavaan parameter file to run mxPath functions
     if(row$label==""){row$label <- NA}
     if(is.na(row$ustart)){row$ustart <- .1}
+    if(row[7]!=0){
+      row$ustart <- a@Fit@x[as.numeric(row[7])]
+    }
     theFrom <- as.character(row$lhs)
     theOp <- as.character(row$op)
     # Factor
@@ -66,7 +69,7 @@ lavaan.to.OpenMx <- function(lavaan.model=NULL,data=NULL,ugroup=NULL,label="Defa
     } 
     # Regression
     else if (theOp == "~") {
-      submodel[[grouping]] <- mxModel(submodel[[grouping]], mxPath(from=as.character(row$rhs), to=theFrom, arrows=1, free=(row$free!=0),values=.1,labels=as.character(row$label)))
+      submodel[[grouping]] <- mxModel(submodel[[grouping]], mxPath(from=as.character(row$rhs), to=theFrom, arrows=1, free=(row$free!=0),values=row$ustart,labels=as.character(row$label)))
     }
     # Threshold
     else if (theOp == "|") {
